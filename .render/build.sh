@@ -1,7 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Set JAVA_HOME manually (Render's default Java location)
+# Set Java environment manually
 export JAVA_HOME=/opt/render/project/.render/java
 
-# Run Maven build using wrapper
+# Optional: echo JAVA version
+echo "Using JAVA_HOME=$JAVA_HOME"
+java -version
+
+# Run Maven build
 ./mvnw clean install
