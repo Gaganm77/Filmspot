@@ -112,7 +112,7 @@ Base URL: `https://filmspot.onrender.com`
   "phone": "9134023343"
 }
 ```
-🔐 Login
+#### 🔐 Login
 POST /login
 
 ```json
@@ -123,7 +123,7 @@ POST /login
 ```
 🔁 Returns JWT token used for authenticated endpoints.
 
-🎟️ Show & Seat APIs
+#### 🎟️ Show & Seat APIs
 🎫 Get Show Seats by Show ID
 GET /api/shows/show-seats/{showId}
 
@@ -132,7 +132,7 @@ Example:
 GET /api/shows/show-seats/1
 Returns seat availability (reserved, available) for that show.
 
-⏳ Reserve Seats (Temporary Hold)
+#### ⏳ Reserve Seats (Temporary Hold)
 POST /show-seats/reserve
 
 ```json
@@ -144,7 +144,7 @@ POST /show-seats/reserve
 ```
 ⚠️ Starts a 10-minute reservation timer. Must confirm via payment.
 
-💳 Payment API
+#### 💳 Payment API
 ✅ Create Payment Intent (Confirm Booking)
 POST /api/payment/create/{bookingId}?amount={amount}
 
@@ -160,7 +160,7 @@ Example:
 POST /api/payment/create/28?amount=350
 🏦 Integrates with Stripe. Booking is only confirmed after successful payment.
 
-🔍 Search API
+#### 🔍 Search API
 📅 Search Shows with Filters
 GET /api/shows/search
 
@@ -195,7 +195,7 @@ This service temporarily holds user seat reservations during the booking process
 
 The `WaitingUsersService` manages users who are attempting to book seats that are currently held by other users.
 
-## 🧠 How It Works
+### 🧠 How It Works
 
 - Waiting users are tracked per show:`Map<showId, Map<userId, WaitingUser>>`
 - When seats are **released** (either due to timeout or cancellation), the system:
